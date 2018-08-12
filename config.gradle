@@ -1,0 +1,73 @@
+/**
+ * 资源依赖配置表
+ */
+def supportVersion      = "26.1.0"
+def constraintVerion    = "1.0.2"
+def butterKnifeVersion  = "8.8.1"
+def gradleToolVersion   = "3.0.0"
+
+def pluginVersion       = "1.0.0"
+
+
+//test模块
+def testRunnerVersion   = "1.0.1"
+def testEspressoVersion = "3.0.1"
+def testJunitVersion    = "4.12"
+
+def xmpcoreVersion      = "5.1.2"
+
+project.ext {
+
+    //camera模块
+    camera = [
+            applicationId    : "com.pi.pliot.democamera",
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    stitch = [
+            applicationId    : "com.pi.pliot.demostitch",
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    //----------------------------------------------------------------------- 组件化插件配置------------------------------------------------------------------------------------
+    plugin  = [
+            "group"          : "com.pi.plugin",
+            "plugin"         : "build-gradle:${pluginVersion}",
+            "version"        : "${pluginVersion}",
+            "repo"           : "../repo"
+    ]
+
+
+    //----------------------------------------------------------------------- android配置------------------------------------------------------------------------------------
+    //android config
+    android = [
+            compileSdkVersion: 26,
+            minSdkVersion    : 24,
+            targetSdkVersion : 26,
+    ]
+
+    //----------------------------------------------------------------------- test配置------------------------------------------------------------------------------------
+    test   = [
+            "runner"          : "com.android.support.test:runner:${testRunnerVersion}",
+            "espresso"        : "com.android.support.test.espresso:espresso-core:${testEspressoVersion}",
+            "junit"           : "junit:junit:${testJunitVersion}",
+            "androidRunner"  : "android.support.test.runner.AndroidJUnitRunner"
+    ]
+
+    //----------------------------------------------------------------------- 依赖配置------------------------------------------------------------------------------------
+    dependencies = [
+            "build-gradle"                : "com.android.tools.build:gradle:${gradleToolVersion}",
+
+            //android-support
+            "support-v4"                  : "com.android.support:support-v4:${supportVersion}",
+            "appcompat-v7"                : "com.android.support:appcompat-v7:${supportVersion}",
+            "constraint-layout"           : "com.android.support.constraint:constraint-layout:${constraintVerion}",
+
+            //butterKnife
+            "xmpcore"                     :"com.adobe.xmp:xmpcore:${xmpcoreVersion}",
+            "butterknife"                 : "com.jakewharton:butterknife:${butterKnifeVersion}",
+    ]
+
+}

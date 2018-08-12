@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+def releaseTime(){
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+
+    lintOptions {
+        disable 'MissingTranslation'
+        abortOnError false
+    }
+
+    defaultConfig {
+        applicationId rootProject.ext.camera["applicationId"]
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.camera["versionCode"]
+        versionName rootProject.ext.camera["versionName"]
+        multiDexEnabled = true
+
+        ndk {
+            abiFilters "arm64-v8a"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //自定义输出apk文件名
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "Pilot_PanoSDKDemo_Camera_Android_v${rootProject.ext.camera["versionName"]}_${releaseTime()}_B.apk"
+                }
+            }
+        }
+    }
+}
+
+allprojects {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+        google()
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    //支持包
+    //implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation files('libs/SDKPano-release.aar')
+}
+
+//allprojects {
+//    repositories {
+//        jcenter()
+//    }
+//}
