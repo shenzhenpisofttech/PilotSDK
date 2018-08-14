@@ -3,7 +3,7 @@ def releaseTime(){
     return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
 }
 android {
-    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    compileSdkVersion 26
 
     lintOptions {
         disable 'MissingTranslation'
@@ -11,11 +11,11 @@ android {
     }
 
     defaultConfig {
-        applicationId rootProject.ext.camera["applicationId"]
-        minSdkVersion rootProject.ext.android["minSdkVersion"]
-        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-        versionCode rootProject.ext.camera["versionCode"]
-        versionName rootProject.ext.camera["versionName"]
+        applicationId "com.pi.pliot.democamera"
+        minSdkVersion 24
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
         multiDexEnabled = true
 
         ndk {
@@ -30,12 +30,6 @@ android {
             shrinkResources false
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //自定义输出apk文件名
-            android.applicationVariants.all { variant ->
-                variant.outputs.all {
-                    outputFileName = "Pilot_PanoSDKDemo_Camera_Android_v${rootProject.ext.camera["versionName"]}_${releaseTime()}_B.apk"
-                }
-            }
         }
     }
 }

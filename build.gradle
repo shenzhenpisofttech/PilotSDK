@@ -1,5 +1,4 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-apply from: "config.gradle"
 
 buildscript {
     
@@ -32,18 +31,6 @@ allprojects {
     }
 
 }
-
-////解决"com.android.support"兼容问题
-//subprojects {
-//    project.configurations.all {
-//        resolutionStrategy.eachDependency { details ->
-//            if (details.requested.group == 'com.android.support'
-//                    && !details.requested.name.contains('multidex') ) {
-//                details.useVersion "26.1.0"
-//            }
-//        }
-//    }
-//}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
