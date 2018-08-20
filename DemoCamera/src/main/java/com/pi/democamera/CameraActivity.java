@@ -40,7 +40,7 @@ public class CameraActivity extends Activity
             public void onSDKCreate() {
                 //you can only call PilotSDK.some_function after onSDKCreate
 
-                PilotSDK.changeCameraResolution(PilotSDK.CAMERA_PREVIEW_4048_2530_15, new ChangeResolutionListener()
+                PilotSDK.changeCameraResolution(PilotSDK.CAMERA_PREVIEW_4048_2530_30, new ChangeResolutionListener()
                 {
                     @Override
                     public void onChangeResolution(int width, int height)

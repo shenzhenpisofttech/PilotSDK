@@ -1,1 +1,1 @@
-include ':DemoCamera'
+include ':DemoCamera', ':DemoIMU'
