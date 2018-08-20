@@ -18,3 +18,6 @@ PilotSDK is used for pilot era application development
    see developer options
 
 4. run
+
+## DemoIMU
+PilotOS is based on Android, so if you want get motion sensors data, you can refer to [android developer website](https://developer.android.google.cn/guide/topics/sensors/sensors_motion), but there is a little different between Pilot SDK and Android SDK, [DemoIMU](https://github.com/shenzhenpisofttech/PilotSDK/tree/master/DemoIMU) show this difference.
