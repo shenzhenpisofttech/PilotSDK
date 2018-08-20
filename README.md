@@ -27,7 +27,8 @@ PilotOS is based on Android, so if you want to get motion sensors data, you can 
 
 ## 如何从图片中获取指南针数据
 指南针数据存储在jpeg图片中的XMP元数据中,XMP元数据在jpeg格式的APP1字段中,因此,获取并解析XMP元数据即可获取指南针数据.
-pilot拍照生成的jpeg文件中的XMP元数据类似以下格式,其中GPano:PoseHeadingDegrees字段即指南针数值,其范围是0到360,这个值代表展开图的中心点所对应的方向,0代表北,90代表东,180代表南,270代表西.
+
+pilot拍照生成的jpeg文件中的XMP元数据类似以下格式,其中GPano:PoseHeadingDegrees字段即指南针数值,其范围是0到360,这个值代表全景展开图的中心点所对应的方向,0代表北,90代表东,180代表南,270代表西.
 
 ~~~
 <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.1.0-jc003">
